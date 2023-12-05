@@ -1,0 +1,24 @@
+
+
+
+<div *ngIf="cartState.isModalVisible"  class="card text-center">
+  <h4 class="p-3 card-header text-start">
+    Carrello
+  </h4>
+  <div class="p-4 row">
+    <div *ngFor="let item of cartState.pizzasInCart" class="d-flex mt-2 col-12">
+      <img class="img-small" src={{item.image}} alt="">
+    <h5 class="card-title mx-2">{{item.name}}</h5>
+    <p class="card-text">{{cartState.getTotalPizza(item) }} qt: * {{item.price}} = {{cartState.getTotalForPizza(item) }}</p>
+  </div>
+  <div class="d-flex justify-content-end">
+  <strong>Tot: {{cartState.totalPrice}}</strong>
+</div>
+  </div>
+  <div class="card-footer p-3 d-flex justify-content-end">
+    <button (click)="cartService.setCartVisible()" class="btn btn-danger me-2">Close</button>
+    <button (click)="cartService.Buy()" class="btn btn-success">buy</button>
+  </div>
+</div>
+
+
